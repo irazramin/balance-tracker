@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Balance Tracker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body class="w-11/12 lg:w-4/5 mx-auto text-center py-8">
+    <!-- Header section -->
+    <header>
+      <h1 class="text-4xl lg:text-5xl font-semibold text-teal-500">Balance Tracker &#128176;</h1>
+    </header>
+
+    <!-- main section -->
+    <main class="my-10">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="bg-slate-100">
+          <img class="w-full h-full" src="img/Saving money-amico.svg" alt="" />
+        </div>
+        <div class="py-10 bg-slate-100 lg:px-8 px-5">
+          <div class="shadow-lg py-7 px-1 lg:px-0">
+            <h4 class="text-xl font-semibold">Income</h4>
+            <div class="mt-8 relative">
+              <label
+                for="income"
+                class="text-lg font-normal block lg:inline-block text-left ml-9 lg:ml-0 mb-2 lg:mb-0"
+                >Income:</label
+              >
+              <input
+                type="number"
+                value="0"
+                class="py-2 px-3 mx-3 rounded-lg bg-slate-300 text-lg font-semibold focus:outline-none"
+                id="income"
+              />
+              <p
+                id="income-error"
+                class="absolute -bottom-6 hidden text-red-500 text-xs lg:text-sm font-semibold left-14 lg:left-32"
+              >
+                Please Enter a valid amount to income
+              </p>
+            </div>
+          </div>
+          <!-- expense part  -->
+          <div class="shadow-lg py-6 mt-7 px-5">
+            <h4 class="text-xl font-semibold">Expense</h4>
+            <div class="lg:w-3/4 mx-auto">
+              <div class="mt-7 lg:flex items-center justify-center relative">
+                <label
+                  for="food"
+                  class="text-lg font-normal block lg:inline-block text-left ml-5 lg:ml-0 mb-2 lg:mb-0"
+                  >Food:</label
+                >
+                <input
+                  type="number"
+                  value="0"
+                  class="py-2 px-3 lg:mx-3 rounded-lg bg-slate-300 text-lg font-semibold focus:outline-none"
+                  id="food"
+                />
+                <p
+                  id="food-error"
+                  class="absolute -bottom-6 hidden text-red-500 text-xs lg:text-sm ml-11 lg:ml-0 font-semibold text-center"
+                >
+                  Please Enter a valid amount to food
+                </p>
+              </div>
+              <div class="mt-7 lg:flex items-center justify-center relative">
+                <label
+                  for="rent"
+                  class="text-lg font-normal block lg:inline-block text-left ml-5 lg:ml-0 mb-2 lg:mb-0"
+                  >Rent:</label
+                >
+                <input
+                  type="number"
+                  value="0"
+                  class="py-2 px-3 lg:mx-3 rounded-lg bg-slate-300 text-lg font-semibold focus:outline-none"
+                  id="rent"
+                />
+                <p
+                  id="rent-error"
+                  class="absolute -bottom-6 hidden text-red-500 text-xs lg:text-sm ml-11 lg:ml-0 font-semibold text-center"
+                >
+                  Please Enter a valid amount to rent
+                </p>
+              </div>
+              <div class="mt-7 lg:flex items-center justify-center relative">
+                <label
+                  for="cloths"
+                  class="text-lg font-normal block lg:inline-block text-left ml-5 lg:ml-0 mb-2 lg:mb-0"
+                  >Cloths:</label
+                >
+                <input
+                  type="number"
+                  value="0"
+                  class="py-2 px-3 lg:mx-3 rounded-lg lg:mr-7 bg-slate-300 text-lg font-semibold focus:outline-none"
+                  id="cloths"
+                />
+                <p
+                  id="cloth-error"
+                  class="absolute -bottom-6 hidden text-red-500 text-xs lg:text-sm ml-11 lg:ml-0 font-semibold text-center"
+                >
+                  Please Enter a valid amount to cloth
+                </p>
+              </div>
+            </div>
+            <div class="relative flex items-center justify-center">
+              <button
+                id="calculate-expense"
+                class="text-white mt-7 bg-sky-500 hover:bg-sky-700 px-9 py-2 rounded-md"
+              >
+                Calculate
+              </button>
+              <p
+                id="balance-expense-error"
+                class="absolute -bottom-6 hidden text-red-500 text-xs lg:text-sm font-semibold text-center "
+              >
+                you can't put expense more than your income
+              </p>
+            </div>
+            <h4 class="mt-5 font-semibold text-xl">
+              Total Expenses: <span id="total-expense">0</span>
+            </h4>
+          </div>
+          <div class="shadow-lg py-6 mt-7">
+            <h4 class="font-semibold text-xl">
+              Balance: <span id="after-expense-balance">0</span>
+            </h4>
+            <!-- saving part -->
+            <div class="mt-6">
+              <div class="lg:flex items-center justify-center relative">
+                <div class="flex items-center justify-center">
+                  <label for="Save" class="text-lg font-normal">Save:</label>
+                  <input
+                    type="number"
+                    value="0"
+                    class="w-24 px-3 mx-3 rounded-lg py-2 mr-7 bg-slate-300 text-lg font-semibold focus:outline-none"
+                    id="saving-input"
+                  />
+                  <p
+                    id="saving-error"
+                    class="absolute hidden text-red-500 text-xs lg:text-sm -bottom-8 text-red-5 font-semibold text-center"
+                  >
+                    Please Enter a valid amount
+                  </p>
+                </div>
+                <h4 class="font-semibold text-xl">%</h4>
+                <button
+                  id="save-btn"
+                  class="text-white ml-3 bg-sky-500 hover:bg-sky-700 px-9 py-2 rounded-md"
+                >
+                  Save
+                </button>
+              </div>
+            </div>
+            <div class="mt-8">
+              <h4 class="font-semibold text-xl">
+                Saving Amount: <span id="saving-amount">0</span>
+              </h4>
+              <h4 class="font-semibold text-xl mt-2">
+                Remaining Balance: <span id="remaining-balance">0</span>
+              </h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="js/app.js"></script>
+  </body>
+</html>
